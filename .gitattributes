@@ -1,1 +1,2 @@
 *.keras filter=lfs diff=lfs merge=lfs -text
+FAST_API/model/*.keras filter=lfs diff=lfs merge=lfs -text
