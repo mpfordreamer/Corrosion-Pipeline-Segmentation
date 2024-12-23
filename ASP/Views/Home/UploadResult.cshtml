@@ -1,0 +1,141 @@
+@{
+    var segmentationResults = ViewBag.SegmentationResults as List<string>;
+    var selectedSegmentationType = ViewBag.SelectedSegmentationType as string; // Assuming you pass this from the controller
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Segmentation Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UjiCoba.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .large-image {
+            width: 400%; /* Increase size to 400% */
+        }
+        .centered-card {
+            margin: 0 auto; /* Center the card */
+        }
+    </style>
+</head>
+<body style="margin-bottom: 5%;">
+
+<div class="container mt-5">
+    <h1 class="text-center">Image Segmentation Result</h1>
+
+    @if (segmentationResults != null && segmentationResults.Any())
+    {
+        foreach (var result in segmentationResults)
+        {
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-lg p-3 mb-4 rounded-4 centered-card">
+                    <img src="@result" id="image-@result" class="img-fluid @(selectedSegmentationType == "all" ? "large-image" : "")" alt="Segmented Image" />
+                    <div class="text-center mt-2">
+                        @* <p>Total Pixels: <span class="total-pixel" id="total-pixel-image-@result"></span></p>
+                        <p>Asset Pixels: <span class="asset-pixel" id="asset-pixel-image-@result"></span></p>
+                        <p>Corrosion Pixels: <span class="corrosion-pixel" id="corrosion-pixel-image-@result"></span></p> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    }
+    else
+    {
+        <p class="text-danger text-center mt-4">No segmentation result found.</p>
+    }
+
+    <div class="text-center mt-4">
+        <form id="downloadImageForm" method="post">
+            <input type="hidden" name="predictionType" value="@ViewBag.SelectedSegmentationType" />
+            <button type="submit" class="btn btn-primary">Download</button>
+        </form>
+    </div>
+    <div class="text-center mt-4">
+        <button id="visualDataBtn" class="btn btn-primary">Visual Data</button>
+        <div id="loadingSpinner" style="display:none;">Loading...</div>
+    </div>
+    <div id="dataResult" class="mt-4"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('downloadImageForm');
+        if (form) {
+            form.onsubmit = async function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const predictionType = document.querySelector('input[name="predictionType"]').value;
+                const imageUrls = @Html.Raw(Json.Serialize(segmentationResults)); // Ensure this contains only valid URLs
+
+                console.log("Image URLs:", imageUrls);
+
+                const url = `@Url.Action("DownloadImages", "Home")`;
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                        },
+                        body: JSON.stringify({ predictionType, files: imageUrls }),
+                    });
+                    if (!response.ok) throw new Error(response.statusText);
+                    alert('Files downloaded successfully!');
+                } catch (error) {
+                    console.error('Error downloading images:', error);
+                    alert('Error: ' + error.message);
+                }
+            };
+        } else {
+            console.error("Element #downloadImageForm not found.");
+        }
+
+        const visualDataBtn = document.getElementById('visualDataBtn');
+        if (visualDataBtn) {
+            visualDataBtn.addEventListener('click', async function () {
+                const spinner = document.getElementById('loadingSpinner');
+                const resultContainer = document.getElementById('dataResult');
+                try {
+                    spinner.style.display = 'block';
+                    const response = await fetch('@Url.Action("SegmentData", "Home")');
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    const resultHTML = `
+                        <table class="table table-bordered table-hover text-center">
+                            <tr><th>Total Pixels</th><td>${data.total_pixel}</td></tr>
+                            <tr><th>Asset Pixels</th><td>${data.asset_pixel}</td></tr>
+                            <tr><th>Corrosion Pixels</th><td>${data.corrosion_pixels}</td></tr>
+                            <tr><th>Asset of Image</th><td>${data.asset_of_Image}</td></tr>
+                            <tr><th>Corrosion of Asset</th><td>${data.corrosion_of_asset}</td></tr>
+                        </table>`;
+                    resultContainer.innerHTML = resultHTML;
+                } catch (error) {
+                    console.error('Error fetching segment data:', error);
+                    resultContainer.innerHTML = '<div class="alert alert-danger">Failed to load data. Please try again.</div>';
+                } finally {
+                    spinner.style.display = 'none';
+                }
+            });
+        } else {
+            console.error("Element #visualDataBtn not found.");
+        }
+    });
+</script>
+
+</body>
+</html>

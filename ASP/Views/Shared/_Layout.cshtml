@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Image Segmentation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UjiCoba.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Custom styles for sidebar */
+        .w3-sidebar {
+            position: fixed; /* Fix the sidebar */
+            top: 8%; /* Adjust to the height of the navbar */
+            bottom: 0; /* Full height */
+            overflow-y: auto; /* Enable scrolling */
+            z-index: 1000; /* Ensure it is above other content */
+        }
+
+        .main-content {
+            margin-left: 250px; /* Adjust for sidebar width */
+            padding-top: 20px; /* Add some padding to the top */
+        }
+
+        /* Adjust the body to prevent overlap */
+        body {
+            padding-top: 0%; /* Space for the navbar */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar/Menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" id="mySidebar">
+        <br>
+        <div class="w3-container">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <img src="~/images/DeepLearning.png" style="width:45%;" class="w3-round">
+            <br><br>
+            <h4><b>Image Segmentation</b></h4>
+            <p class="w3-text-grey">Dashboard for Image Segmentation Prediction</p>
+        </div>
+        <!-- New Dropdown for Performance Options -->
+        <div class="w3-container" style="margin-bottom: 1rem; margin-top: 0.5rem;">
+        </div>
+        <div class="w3-container">
+            <h4>Preprocessing</h4>
+            <ul class="w3-text-black">
+                <li>Images will be automatically resized to 256x256 if they do not match</li>
+                <li>Converted to RGB format</li>
+                <li>Pixel normalization (0-1)</li>
+            </ul>
+        </div>
+        <div class="w3-panel w3-large">
+            <a href="https://www.github.com/mpfordreamer" target="_blank">
+                <i class="fa fa-github fa-2x w3-hover-opacity" style="margin: 0 5px;"></i>
+            </a>
+            <a href="https://www.instagram.com/demahesta/" target="_blank">
+                <i class="fa fa-instagram fa-2x w3-hover-opacity" style="margin: 0 5px;"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/demahesta" target="_blank">
+                <i class="fa fa-linkedin fa-2x w3-hover-opacity" style="margin: 0 5px;"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay" onclick="w3_close()" id="myOverlay"></div>
+
+    <!-- Main Content -->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Pipeline Segmentation Prototype</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">User Guide</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListImage">List Image</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Sidebar is already defined above -->
+            </div>
+            <div class="col-md-9 main-content">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Made by De Mahesta<br> Undiksha x PT. Dago Engineering
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block"; // Show the sidebar
+            document.getElementById("myOverlay").style.display = "block"; // Show the overlay
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none"; // Hide the sidebar
+            document.getElementById("myOverlay").style.display = "none"; // Hide the overlay
+        }
+            document.getElementById('performanceSelect').addEventListener('change', function() {
+        var selectedValue = this.value;
+        console.log("Selected Performance Option: " + selectedValue);
+        // You can add your logic here to handle the performance selection
+    });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

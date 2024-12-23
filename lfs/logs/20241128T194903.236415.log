@@ -1,0 +1,59 @@
+git-lfs/3.6.0 (GitHub; darwin arm64; go 1.23.3)
+git version 2.39.5 (Apple Git-154)
+
+$ git-lfs prune
+Prune error: Git can't resolve ref: "HEAD"
+Prune error: error in `git worktree`: exit status 128: fatal: not a git repository (or any of the parent directories): .git
+
+Prune error: error in `git log`: exit status 128 fatal: not a git repository (or any of the parent directories): .git
+
+
+error in `git log`: exit status 128 fatal: not a git repository (or any of the parent directories): .git
+
+github.com/git-lfs/git-lfs/v3/errors.New
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:62
+github.com/git-lfs/git-lfs/v3/lfs.parseScannerLogOutput.func2
+	github.com/git-lfs/git-lfs/v3/lfs/gitscanner_log.go:163
+runtime.goexit
+	runtime/asm_arm64.s:1223
+
+Current time in UTC:
+2024-11-28 12:49:03
+
+Environment:
+LocalWorkingDir=
+LocalGitDir=
+LocalGitStorageDir=
+LocalMediaDir=lfs/objects
+LocalReferenceDirs=
+TempDir=lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_ASKPASS=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+GIT_EXEC_PATH=/Applications/Xcode.app/Contents/Developer/usr/libexec/git-core
+
+Client IP addresses:
+fe80::ca4:8941:282c:70b3 172.20.10.3
+fe80::9814:20ff:fedb:76a2
+fe80::9814:20ff:fedb:76a2
+fe80::3b44:54f7:9f6e:c006
+fe80::52d:a17a:da6f:473a
+fe80::ce81:b1c:bd2c:69e
+fe80::73f0:c94a:a4e6:fdb1
+fe80::d406:a967:a6c7:eae4
+fe80::8258:278b:724f:aa80

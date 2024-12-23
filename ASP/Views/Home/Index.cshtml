@@ -1,0 +1,216 @@
+﻿@model UjiCoba.Models.UploadImage
+
+@{
+    Layout = "_Layout";
+}
+<head>
+<h2 class="text-center text-primary my-5">Upload Image for Segmentation</h2>
+</head>
+
+<body style="margin-top: 10px; margin-bottom: 30px;">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg p-4 rounded-4">
+                <h3 class="text-center mb-4 text-muted">Select Image</h3>
+                <form asp-action="UploadImages" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="ImageFiles" class="form-label">Segmentation Image</label>
+                        <input type="file" class="form-control" id="ImageFiles" name="ImageFiles" accept="image/*" multiple />
+                        <span asp-validation-for="ImageFiles" class="text-danger"></span>
+                    </div>
+
+                    <!-- Dropdown for segmentation options -->
+                    <div class="form-group mt-3">
+                        <label for="segmentationType" class="form-label">Select Segmentation Type</label>
+                        <select id="segmentationType" name="segmentationType" class="form-select">
+                            <option value="asset">Asset</option>
+                            <option value="corrosion">Corrosion</option>
+                            <option value="intersection">Intersection</option>
+                            <option value="data">Visual Report</option>
+                            <option value="all">All Option</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Upload</button>
+                    </div>
+                </form>
+                
+                <!-- Preview Container for displaying images -->
+                <div id="previewContainer" class="row mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .preview-image {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .preview-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .preview-container {
+        position: relative;
+        text-align: center;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .file-info {
+        font-size: 0.9rem;
+        color: #555;
+        margin-top: 10px;
+        text-align: left;
+        padding-left: 15px;
+    }
+
+    .remove-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 0, 0, 0.8);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 28px;
+        font-size: 18px;
+        z-index: 10;
+        transition: background 0.3s ease;
+    }
+
+    .remove-button:hover {
+        background: rgba(255, 0, 0, 1);
+    }
+
+    .file-name {
+        font-weight: bold;
+        color: #333;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .file-size {
+        color: #666;
+        font-size: 0.85rem;
+    }
+
+    .file-type {
+        color: #666;
+        font-size: 0.85rem;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('ImageFiles').addEventListener('change', function (event) {
+        const files = Array.from(event.target.files);
+        const previewContainer = document.getElementById('previewContainer');
+        previewContainer.innerHTML = ''; // Clear previous previews
+
+        files.forEach((file) => {
+            if (!file.type.startsWith('image/')) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const colDiv = document.createElement('div');
+                colDiv.className = 'col-md-4 preview-container';
+
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'preview-image';
+
+                const fileInfo = document.createElement('div');
+                fileInfo.className = 'file-info';
+                fileInfo.innerHTML = `
+                    <p class="file-name">${file.name}</p>
+                    <p class="file-size"><strong>Size:</strong> ${(file.size / 1024).toFixed(2)} KB</p>
+                    <p class="file-type"><strong>Type:</strong> ${file.type}</p>
+                `;
+
+                const removeButton = document.createElement('button');
+                removeButton.className = 'remove-button';
+                removeButton.textContent = '×';
+                removeButton.onclick = function () {
+                    colDiv.remove();
+                };
+
+                colDiv.appendChild(img);
+                colDiv.appendChild(fileInfo);
+                colDiv.appendChild(removeButton);
+                previewContainer.appendChild(colDiv);
+            };
+
+            reader.readAsDataURL(file);
+        });
+    });
+
+    document.getElementById('uploadButton').addEventListener('click', function () {
+        const formData = new FormData(document.getElementById('uploadForm'));
+        const segmentationType = document.getElementById('segmentationType').value;
+
+        // Append the selected segmentation type to the form data
+        formData.append('segmentationType', segmentationType);
+
+        fetch('http://localhost:5001/upload/', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.message) {
+                alert(data.message);
+                // Call the appropriate segmentation endpoint based on the selected type
+                fetch(`http://localhost:5001/segment/${segmentationType}/`)
+                .then(segResponse => {
+                    if (!segResponse.ok) {
+                        throw new Error('Network response was not ok: ' + segResponse.statusText);
+                    }
+                    return segResponse.blob();
+                })
+                .then(imageBlob => {
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(imageBlob);
+                    img.className = 'img-fluid rounded mt-4';
+                    document.getElementById('previewContainer').appendChild(img);
+                })
+                .catch(error => {
+                    console.error('Error fetching segmented image:', error);
+                    alert('Error fetching segmented image. Please try again.');
+                });
+            } else {
+                alert('No message returned from the server.');
+            }
+        })
+        .catch(error => {
+            console.error('Error uploading images:', error);
+            alert('Error uploading images. Please try again.');
+        });
+    });
+});
+</script>
+</body>

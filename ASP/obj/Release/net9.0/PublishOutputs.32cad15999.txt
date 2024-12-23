@@ -1,0 +1,8 @@
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/UjiCoba
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/appsettings.Development.json
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/appsettings.json
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/UjiCoba.dll
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/UjiCoba.deps.json
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/UjiCoba.runtimeconfig.json
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/UjiCoba.pdb
+/Users/macbook-air/Documents/DAGO PHKT (AIDA PHASE 3 BACKUP)/ASP/UJICOBA/ASP/bin/Release/net9.0/publish/Newtonsoft.Json.dll
