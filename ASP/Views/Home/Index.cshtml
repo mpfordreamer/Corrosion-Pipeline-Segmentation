@@ -3,43 +3,69 @@
 @{
     Layout = "_Layout";
 }
+
 <head>
-<h2 class="text-center text-primary my-5">Upload Image for Segmentation</h2>
 </head>
 
 <body style="margin-top: 10px; margin-bottom: 30px;">
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-lg p-4 rounded-4">
-                <h3 class="text-center mb-4 text-muted">Select Image</h3>
-                <form asp-action="UploadImages" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="ImageFiles" class="form-label">Segmentation Image</label>
-                        <input type="file" class="form-control" id="ImageFiles" name="ImageFiles" accept="image/*" multiple />
-                        <span asp-validation-for="ImageFiles" class="text-danger"></span>
-                    </div>
 
-                    <!-- Dropdown for segmentation options -->
-                    <div class="form-group mt-3">
-                        <label for="segmentationType" class="form-label">Select Segmentation Type</label>
-                        <select id="segmentationType" name="segmentationType" class="form-select">
-                            <option value="asset">Asset</option>
-                            <option value="corrosion">Corrosion</option>
-                            <option value="intersection">Intersection</option>
-                            <option value="data">Visual Report</option>
-                            <option value="all">All Option</option>
-                        </select>
+<!-- Banner Section -->
+<div class="header-carousel position-relative" style="height: calc(120vh); overflow: hidden;"> 
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="~/images/Banner.png" alt="" style="height: 100%; width: 100%; object-fit: cover;"> <!-- Ensure the image covers the area -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                        </div>
                     </div>
-
-                    <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Upload</button>
-                    </div>
-                </form>
-                
-                <!-- Preview Container for displaying images -->
-                <div id="previewContainer" class="row mt-4"></div>
+                </div>
             </div>
+            <div class="position-absolute bottom-0 start-0 w-100 p-3 d-flex justify-content-start" style="transform: translateY(-138%) translateX(-5%);"> <!-- Use Flexbox to align left -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12"> <!-- Removed text-center to align left -->
+                            <button type="button" class="btn btn-primary py-3" id="tryItOutButton" style="font-size: 1.5rem; width: 30%; min-width: 150px;"><b>Try it Out</b></button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-4" id="uploadForm" style="margin-bottom:100px;"> <!-- Added margin-top for spacing -->
+    <div class="col-md-8">
+        <div class="card shadow-lg p-4 rounded-4">
+            <h2 class="text-center text-primary my-5">Upload Image for Segmentation</h2>
+            <h3 class="text-center mb-4 text-muted">Select Image</h3>
+            <form asp-action="UploadImages" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="ImageFiles" class="form-label">Segmentation Image</label>
+                    <input type="file" class="form-control" id="ImageFiles" name="ImageFiles" accept="image/*" multiple />
+                    <span asp-validation-for="ImageFiles" class="text-danger"></span>
+                </div>
+
+                <!-- Dropdown for segmentation options -->
+                <div class="form-group mt-3">
+                    <label for="segmentationType" class="form-label">Select Segmentation Type</label>
+                    <select id="segmentationType" name="segmentationType" class="form-select">
+                        <option value="asset">Asset</option>
+                        <option value="corrosion">Corrosion</option>
+                        <option value="intersection">Intersection</option>
+                        <option value="data">Visual Report</option>
+                        <option value="all">All Option</option>
+                    </select>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Upload</button>
+                </div>
+            </form>
+            
+            <!-- Preview Container for displaying images -->
+            <div id="previewContainer" class="row mt-4"></div>
         </div>
     </div>
 </div>
@@ -48,79 +74,61 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <style>
-    .preview-image {
-        max-width: 100%;
-        height: auto;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .preview-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .preview-container {
+    .main-banner {
+        background-image: url('~/images/Upload2.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        padding: 100px 0; /* Adjust padding as needed */
         position: relative;
-        text-align: center;
-        border: 2px solid #ddd;
-        border-radius: 12px;
-        padding: 10px;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        margin: 0; /* Remove margin to ensure it touches the sides */
     }
 
-    .file-info {
-        font-size: 0.9rem;
-        color: #555;
-        margin-top: 10px;
-        text-align: left;
-        padding-left: 15px;
+    .intro-banner .container-fluid {
+        position : relative;
+        z-index: 2; /* Ensure content is above the overlay */
     }
 
-    .remove-button {
+    .intro-banner h6, .intro-banner h2 {
+        color: white; /* Change text color for better visibility */
+    }
+
+    .intro-banner a {
+        color: #fa65b1 !important; /* Link color */
+        border: 1px solid #fa65b1 !important; /* Link border color */
+    }
+
+    .intro-banner a:hover {
+        background-color: #fa65b1; /* Hover background color */
+        color: #fff !important; /* Hover text color */
+    }
+    .overlay {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        background: rgba(255, 0, 0, 0.8);
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        line-height: 28px;
-        font-size: 18px;
-        z-index: 10;
-        transition: background 0.3s ease;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3); /* Optional: Black overlay with 30% opacity */
+        z-index: 1; /* Ensure overlay is above the background */
     }
 
-    .remove-button:hover {
-        background: rgba(255, 0, 0, 1);
+    .left-content {
+        position: relative;
+        z-index: 2; /* Ensure content is above the overlay */
     }
 
-    .file-name {
-        font-weight: bold;
-        color: #333;
-        margin-top: 10px;
-        font-size: 1rem;
-    }
-
-    .file-size {
-        color: #666;
-        font-size: 0.85rem;
-    }
-
-    .file-type {
-        color: #666;
-        font-size: 0.85rem;
+    .right-image {
+        position: relative;
+        z-index: 2; /* Ensure content is above the overlay */
     }
 </style>
 
 <script>
+
+document.getElementById('tryItOutButton').addEventListener('click', function() {
+        document.getElementById('uploadForm').scrollIntoView({ behavior: 'smooth' });
+    });
+    
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('ImageFiles').addEventListener('change', function (event) {
         const files = Array.from(event.target.files);

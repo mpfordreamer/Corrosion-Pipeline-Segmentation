@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4Yn/k8SsH5RzRc18iLI8mL0ppoj3kqqoMb7EdXFpDbg=",
+  "Hash": "v9T3BKPXq0dFxM0DcHKDhSlti0eWi5au8fnTq3iP85w=",
   "Source": "UjiCoba",
   "BasePath": "_content/UjiCoba",
   "Mode": "Default",
@@ -500,12 +500,12 @@
       "OriginalItemSpec": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-zpcqefs6pd.gz",
+      "Identity": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-5wzuiduw3e.gz",
       "SourceId": "UjiCoba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/UjiCoba",
-      "RelativePath": "css/site#[.{fingerprint=zpcqefs6pd}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=5wzuiduw3e}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -514,8 +514,8 @@
       "RelatedAsset": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "25b8j0w3uz",
-      "Integrity": "Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg=",
+      "Fingerprint": "bgqzyenr6t",
+      "Integrity": "q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\css\\site.css"
@@ -1459,8 +1459,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zpcqefs6pd",
-      "Integrity": "52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y=",
+      "Fingerprint": "5wzuiduw3e",
+      "Integrity": "y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1506,6 +1506,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\asset.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\images\\Banner.png",
+      "SourceId": "UjiCoba",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\",
+      "BasePath": "_content/UjiCoba",
+      "RelativePath": "images/Banner#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ejtvi10v1f",
+      "Integrity": "tqIKUUWesgqR9DFD+ZhoihlbwGGl1KG5L4aKnDVYk1M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Banner.png"
     },
     {
       "Identity": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\images\\c0b8d-1.jpg",
@@ -3257,13 +3278,13 @@
       ]
     },
     {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-zpcqefs6pd.gz",
+      "Route": "css/site.5wzuiduw3e.css",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-5wzuiduw3e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001855287570"
+          "Quality": "0.001490312966"
         }
       ],
       "ResponseHeaders": [
@@ -3273,19 +3294,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "538"
+          "Value": "670"
         },
         {
           "Name": "ETag",
-          "Value": "\"Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg=\""
+          "Value": "\"q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 03:14:36 GMT"
+          "Value": "Tue, 07 Jan 2025 03:38:27 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -3301,18 +3322,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y=\""
+          "Value": "W/\"y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "5wzuiduw3e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y="
+          "Value": "sha256-y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw="
         }
       ]
     },
     {
-      "Route": "css/site.css",
+      "Route": "css/site.5wzuiduw3e.css",
       "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3322,7 +3351,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1198"
+          "Value": "1618"
         },
         {
           "Name": "Content-Type",
@@ -3330,121 +3359,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y=\""
+          "Value": "\"y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 03:14:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-zpcqefs6pd.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "538"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 03:14:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.zpcqefs6pd.css",
-      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-zpcqefs6pd.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001855287570"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "538"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 03:14:36 GMT"
+          "Value": "Tue, 07 Jan 2025 03:38:27 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zpcqefs6pd"
+          "Value": "5wzuiduw3e"
         },
         {
           "Name": "label",
@@ -3452,13 +3381,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y="
+          "Value": "sha256-y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw="
         }
       ]
     },
     {
-      "Route": "css/site.zpcqefs6pd.css",
-      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\css\\site.css",
+      "Route": "css/site.5wzuiduw3e.css.gz",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-5wzuiduw3e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3467,7 +3396,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1198"
+          "Value": "670"
         },
         {
           "Name": "Content-Type",
@@ -3475,56 +3404,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y=\""
+          "Value": "\"q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 03:14:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "zpcqefs6pd"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-52wx/gqEb/sFlzYj52+34T0sNxPjNAColRKWY0NmZ8Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.zpcqefs6pd.css.gz",
-      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-zpcqefs6pd.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "538"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 03:14:36 GMT"
+          "Value": "Tue, 07 Jan 2025 03:38:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3542,7 +3426,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zpcqefs6pd"
+          "Value": "5wzuiduw3e"
         },
         {
           "Name": "label",
@@ -3550,7 +3434,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Zp3jIyDZ6Ed4xtaMPFTwqvjfa89b7rBKpQJXO7l3Edg="
+          "Value": "sha256-q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-5wzuiduw3e.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001490312966"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "670"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 07 Jan 2025 03:38:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1618"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 07 Jan 2025 03:38:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y2h77aZI91HIoWmFkHcYFHRlmGSgwi/Kk22BapEveRw="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\obj\\Debug\\net9.0\\compressed\\cy1pl2yj8z-5wzuiduw3e.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "670"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 07 Jan 2025 03:38:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-q/raiwe6ddk7tuySDI32pRuX2qFcfysAVj9GxduYdLw="
         }
       ]
     },
@@ -3931,6 +3952,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-x/2bQQWhwqHwBpnmdwKvzKFq8Ff2WxL9kAp4OTcWXCU="
+        }
+      ]
+    },
+    {
+      "Route": "images/Banner.ejtvi10v1f.png",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\images\\Banner.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3088170"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tqIKUUWesgqR9DFD+ZhoihlbwGGl1KG5L4aKnDVYk1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 15:49:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ejtvi10v1f"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Banner.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tqIKUUWesgqR9DFD+ZhoihlbwGGl1KG5L4aKnDVYk1M="
+        }
+      ]
+    },
+    {
+      "Route": "images/Banner.png",
+      "AssetFile": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\images\\Banner.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3088170"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tqIKUUWesgqR9DFD+ZhoihlbwGGl1KG5L4aKnDVYk1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 15:49:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tqIKUUWesgqR9DFD+ZhoihlbwGGl1KG5L4aKnDVYk1M="
         }
       ]
     },

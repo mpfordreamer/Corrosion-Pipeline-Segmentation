@@ -30,6 +30,10 @@ body {
   text-align: start;
 }
 
+.nav-link:hover {
+  color: #258cfb !important; /* Blue color on hover */
+}
+
 /* New footer style */
 .footer {
   position: fixed; /* Position relative to the normal flow */
@@ -41,4 +45,18 @@ body {
   margin-top: 1.25rem; /* Add margin of 1rem above the footer */
   background-color: #f8f9fa; /* Optional: Set a background color */
   border-top: 1px solid #dee2e6; /* Optional: Add a top border */
+}
+
+@media (max-width: 768px) {
+  #tryItOutButton {
+      font-size: 0,7rem; /* Smaller font size for mobile */
+      min-width: 70%; /* Wider button on mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  #tryItOutButton {
+      font-size: 1.5rem; /* Larger font size for desktop */
+      min-width: 50%; /* Adjust as needed */
+  }
 }

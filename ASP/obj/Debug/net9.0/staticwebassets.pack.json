@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\images\\Banner.png",
+      "PackagePath": "staticwebassets\\images\\Banner.png"
+    },
+    {
       "Id": "C:\\Users\\dewam\\Project Machine Learning and Data Science\\AIDA Pipe Corrosion\\DEPLOY_ASP\\UJICOBA_NEW\\UJICOBA\\ASP\\wwwroot\\images\\DeepLearning.png",
       "PackagePath": "staticwebassets\\images\\DeepLearning.png"
     },
