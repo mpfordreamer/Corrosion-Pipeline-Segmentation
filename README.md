@@ -1,27 +1,27 @@
-# **Proyek Segmentasi Gambar: Deteksi Kelas pada Citra Pipa Korosi dengan DeepLabV3+**
-<img width="500" alt="Portofolio" src="https://github.com/user-attachments/assets/2a79f682-31f5-45d7-a32a-2bbcf148c359" />
+# **Image Segmentation Project: Class Detection in Corroded Pipe Imagery with U-Net & DeepLabV3+**
+<img width="500" alt="Portfolio" src="https://github.com/user-attachments/assets/2a79f682-31f5-45d7-a32a-2bbcf148c359" />
 
-## **Ringkasan Proyek**
-Proyek ini bertujuan untuk membangun dan melatih model *deep learning* **U-Net** & **DeepLabV3+** untuk tugas segmentasi gambar. Model ini dirancang untuk mengklasifikasikan setiap piksel dalam sebuah citra ke dalam kelas-kelas yang telah ditentukan (*background*, *asset*, *corrosion*). Dengan memanfaatkan arsitektur *encoder-decoder* yang kuat dan *Atrous Spatial Pyramid Pooling* (ASPP), model ini mampu menangkap konteks multi-skala untuk menghasilkan prediksi segmentasi yang akurat.
+## **Project Summary**
+This project aims to build and train **U-Net** & **DeepLabV3+** deep learning models for an image segmentation task. The model is designed to classify each pixel in an image into predefined classes (*background*, *asset*, *corrosion*). By leveraging a powerful encoder-decoder architecture and *Atrous Spatial Pyramid Pooling* (ASPP), the model can capture multi-scale context to produce accurate segmentation predictions.
 
-### **Tujuan Proyek:**
+### **Project Objectives:**
 
-1.  **Membangun Model Segmentasi**: Mengimplementasikan arsitektur U-Net & DeepLabV3+ dengan *backbone* ResNet50 untuk melakukan klasifikasi piksel demi piksel.
-2.  **Mencapai Akurasi Tinggi**: Melatih model untuk mencapai metrik evaluasi yang optimal seperti *Intersection over Union* (IoU) dan *Dice Coefficient*.
-3.  **Visualisasi Hasil**: Menghasilkan *mask* prediksi yang secara visual dapat membedakan antar kelas dalam citra uji.
+1.  **Build a Segmentation Model**: Implement the U-Net & DeepLabV3+ architectures with a ResNet50 backbone to perform pixel-wise classification.
+2.  **Achieve High Accuracy**: Train the model to achieve optimal evaluation metrics such as *Intersection over Union* (IoU) and *Dice Coefficient*.
+3.  **Visualize Results**: Generate prediction masks that can visually distinguish between classes in a test image.
 
-### **Cakupan Proyek:**
+### **Project Scope:**
 
-*   Preprocessing data gambar dan *mask ground truth*.
-*   Implementasi dan pelatihan model DeepLabV3+ menggunakan TensorFlow dan Keras.
-*   Evaluasi kinerja model pada data uji menggunakan metrik segmentasi standar.
-*   Visualisasi hasil prediksi untuk analisis kualitatif.
+*   Preprocessing of image data and ground truth masks.
+*   Implementation and training of the DeepLabV3+ model using TensorFlow and Keras.
+*   Evaluation of model performance on test data using standard segmentation metrics.
+*   Visualization of prediction results for qualitative analysis.
 
-### **Persiapan Data**
+### **Data Preparation**
 
 #### **Dataset:**
 
-Dataset yang digunakan terdiri dari gambar asli dan *mask ground truth* yang sesuai, diorganisir dalam struktur folder berikut:
+The dataset used consists of original images and their corresponding ground truth masks, organized in the following folder structure:
 ```
 /DATASET
     /original
@@ -31,82 +31,82 @@ Dataset yang digunakan terdiri dari gambar asli dan *mask ground truth* yang ses
         GT_001.png
         ...
 ```
-**Detail Dataset:**
--   **Total Data**: 216 pasang gambar dan *mask*.
+**Dataset Details:**
+-   **Total Data**: 216 pairs of images and masks.
 -   **Format**: PNG
--   **Ukuran Gambar**: Diseragamkan menjadi 256x256 piksel.
--   **Mode Warna**: RGB
+-   **Image Size**: Standardized to 256x256 pixels.
+-   **Color Mode**: RGB
 
-Pastikan *environment* Anda sudah terinstal dengan *library* yang diperlukan:
+Ensure your environment is installed with the necessary libraries:
 ```bash
 pip install tensorflow numpy opencv-python matplotlib seaborn openpyxl
 ```
 
-#### **Proses Persiapan Data:**
-1.  **Normalisasi & Standarisasi**: Semua gambar dan *mask* diubah ukurannya menjadi 256x256 dan dinormalisasi.
-2.  **Pembagian Data**: Dataset dibagi menjadi data latih (80%), validasi (10%), dan uji (10%) secara acak.
-3.  **One-Hot Encoding**: *Mask ground truth* (RGB) diubah menjadi format *one-hot encoded* dengan 3 kelas untuk digunakan sebagai target pelatihan.
-    *   **Kelas 0**: Merah `(255, 0, 0)`
-    *   **Kelas 1**: Biru `(0, 0, 255)`
-    *   **Kelas 2**: Hijau `(0, 255, 0)`
+#### **Data Preparation Process:**
+1.  **Normalization & Standardization**: All images and masks are resized to 256x256 and normalized.
+2.  **Data Splitting**: The dataset is randomly split into training (80%), validation (10%), and test (10%) sets.
+3.  **One-Hot Encoding**: The RGB ground truth masks are converted into a one-hot encoded format with 3 classes to be used as the training target.
+    *   **Class 0**: Red `(255, 0, 0)`
+    *   **Class 1**: Blue `(0, 0, 255)`
+    *   **Class 2**: Green `(0, 255, 0)`
 
 ### **Modeling**
 
-Model yang dibangun adalah **DeepLabV3+**, sebuah arsitektur *state-of-the-art* untuk segmentasi semantik.
+The model built is **DeepLabV3+**, a state-of-the-art architecture for semantic segmentation.
 
-*   **Encoder**: Menggunakan **ResNet50** yang telah dilatih pada ImageNet untuk mengekstraksi fitur dari gambar input.
-*   **Atrous Spatial Pyramid Pooling (ASSP)**: Blok ini digunakan untuk menangkap konteks pada berbagai skala tanpa mengurangi resolusi spasial, yang krusial untuk segmentasi objek berukuran berbeda.
-*   **Decoder**: Menggabungkan fitur dari *encoder* dengan fitur dari ASSP, lalu melakukan *upsampling* untuk menghasilkan *mask* segmentasi dengan resolusi yang sama seperti gambar asli.
-*   **Fungsi Aktivasi Output**: Menggunakan `softmax` untuk menghasilkan probabilitas kelas untuk setiap piksel.
+*   **Encoder**: Uses **ResNet50**, pre-trained on ImageNet, to extract features from the input image.
+*   **Atrous Spatial Pyramid Pooling (ASPP)**: This block is used to capture context at multiple scales without reducing spatial resolution, which is crucial for segmenting objects of different sizes.
+*   **Decoder**: Combines features from the encoder with features from ASPP, then performs upsampling to produce a segmentation mask with the same resolution as the original image.
+*   **Output Activation Function**: Uses `softmax` to generate class probabilities for each pixel.
 
 ### **Evaluation**
 
-Kinerja model dievaluasi menggunakan metrik standar untuk tugas segmentasi:
+The model's performance is evaluated using standard metrics for segmentation tasks:
 
-*   **Intersection over Union (IoU)**: Mengukur tumpang tindih antara *mask* prediksi dan *ground truth*.
-*   **Dice Coefficient**: Mirip dengan IoU, metrik ini juga mengukur tumpang tindih dan sangat umum digunakan dalam segmentasi.
-*   **F1-Score**: Memberikan skor tunggal yang menyeimbangkan *precision* dan *recall*.
-*   **Confusion Matrix**: Memberikan gambaran visual tentang performa klasifikasi untuk setiap kelas.
+*   **Intersection over Union (IoU)**: Measures the overlap between the predicted mask and the ground truth.
+*   **Dice Coefficient**: Similar to IoU, this metric also measures overlap and is very common in segmentation.
+*   **F1-Score**: Provides a single score that balances precision and recall.
+*   **Confusion Matrix**: Provides a visual overview of classification performance for each class.
 
-Berikut adalah ringkasan hasil evaluasi performa dari kedua model pada data uji:
+Here is a summary of the evaluation results for both models on the test data:
 
 **DeepLabV3+**
-| Class             | IoU (Rata-rata) | Dice (Rata-rata) | F1-Score (Rata-rata) |
-| ----------------- | --------------- | ---------------- | -------------------- |
-| Corrosion (Merah) | 56.66%          | 64.19%           | 88.65%               |
-| Asset (Biru)      | 85.73%          | 91.55%           | 93.65%               |
-| **Overall**       | **80.07%**      | **80.07%**       | **80.07%**           |
+| Class             | Average IoU | Average Dice | Average F1-Score |
+| ----------------- | ----------- | ------------ | ---------------- |
+| Corrosion (Red)   | 56.66%      | 64.19%       | 88.65%           |
+| Asset (Blue)      | 85.73%      | 91.55%       | 93.65%           |
+| **Overall**       | **80.07%**  | **80.07%**   | **80.07%**       |
 
 **U-Net**
-| Class             | IoU (Rata-rata) | Dice (Rata-rata)  | F1-Score (Rata-rata) |
-| ----------------- | --------------- | ----------------- | -------------------- |
-| Corrosion (Merah) | 52.54%          | 58.9975% → 59.00% | 85.38%               |
-| Asset (Biru)      | 70.07%          | 79.93%            | 83.63%               |
-| **Overall**       | **71.76%**      | **71.76%**        | **71.76%**           |
+| Class             | Average IoU | Average Dice | Average F1-Score |
+| ----------------- | ----------- | ------------ | ---------------- |
+| Corrosion (Red)   | 52.54%      | 59.00%       | 85.38%           |
+| Asset (Blue)      | 70.07%      | 79.93%       | 83.63%           |
+| **Overall**       | **71.76%**  | **71.76%**   | **71.76%**       |
 
-### **Arsitektur & Deployment**
+### **Architecture & Deployment**
 
-Model DeepLabV3+ yang telah dilatih diintegrasikan ke dalam sistem aplikasi untuk penggunaan praktis melalui arsitektur berbasis layanan (*microservices*).
+The trained DeepLabV3+ model is integrated into an application system for practical use through a service-based architecture (*microservices*).
 
-*   **Backend (FastAPI)**: Backend API dibangun menggunakan **FastAPI** (Python) untuk melayani model *machine learning*. Endpoint ini bertanggung jawab untuk menerima gambar, memprosesnya dengan model DeepLabV3+, dan mengembalikan hasil segmentasi.
-*   **Frontend (ASP.NET)**: Aplikasi *web* yang menghadap pengguna (antarmuka) dikembangkan menggunakan **ASP.NET**. Pengguna dapat mengunggah gambar melalui antarmuka ini, yang kemudian akan dikirim ke backend FastAPI untuk diproses.
+*   **Backend (FastAPI)**: A backend API is built using **FastAPI** (Python) to serve the machine learning model. This endpoint is responsible for receiving an image, processing it with the DeepLabV3+ model, and returning the segmentation result.
+*   **Frontend (ASP.NET)**: The user-facing web application (interface) is developed using **ASP.NET**. Users can upload images through this interface, which are then sent to the FastAPI backend for processing.
 
-**Alur Kerja Sistem:**
-1.  Pengguna mengakses aplikasi web ASP.NET dan mengunggah gambar.
-2.  Frontend ASP.NET mengirimkan gambar ke endpoint API FastAPI.
-3.  Backend FastAPI menerima gambar, melakukan *preprocessing*, dan memberikannya ke model DeepLabV3+ untuk prediksi.
-4.  Model menghasilkan *mask* segmentasi.
-5.  FastAPI mengembalikan *mask* hasil prediksi ke aplikasi ASP.NET.
-6.  Frontend menampilkan gambar asli beserta hasil segmentasinya kepada pengguna.
+**System Workflow:**
+1.  The user accesses the ASP.NET web application and uploads an image.
+2.  The ASP.NET frontend sends the image to the FastAPI API endpoint.
+3.  The FastAPI backend receives the image, preprocesses it, and feeds it to the DeepLabV3+ model for prediction.
+4.  The model generates a segmentation mask.
+5.  FastAPI returns the predicted mask to the ASP.NET application.
+6.  The frontend displays the original image alongside its segmentation result to the user.
 
 ### **Conclusion**
 
-Proyek ini berhasil mengimplementasikan model **DeepLabV3+** untuk tugas segmentasi multikelas—mengungguli UNet dengan rata-rata metrik keseluruhan 80.07% dibandingkan 71.76%. Arsitektur DeepLabV3+ dengan backbone ResNet50 dan ASSP terbukti lebih efektif dalam menangkap konteks piksel untuk membedakan korosi dan aset. Fitur ini kini sudah diintegrasikan ke dalam sistem Pertamina bernama **AIDA** sebagai modul segmentasi otomatis.
+This project successfully implemented a **DeepLabV3+** model for a multi-class segmentation task—outperforming U-Net with an overall average metric of 80.07% compared to 71.76%. The DeepLabV3+ architecture with a ResNet50 backbone and ASPP proved to be more effective at capturing pixel context to distinguish between corrosion and assets. This feature has now been integrated into a Pertamina system called **AIDA** as an automated segmentation module.
 
-#### **Potensi Aplikasi**
+#### **Potential Applications**
 
-Model segmentasi seperti ini memiliki aplikasi luas di berbagai industri, antara lain:
--   **Inspeksi Infrastruktur**: Mendeteksi korosi atau kerusakan pada jembatan, pipa, atau struktur logam lainnya secara otomatis.
--   **Manufaktur**: Mengidentifikasi cacat produk pada lini produksi.
--   **Analisis Medis**: Segmentasi organ atau jaringan abnormal dari citra medis seperti CT scan atau MRI.
--   **Monitoring Lingkungan**: Memetakan jenis tutupan lahan dari citra satelit.
+Segmentation models like this have broad applications across various industries, including:
+-   **Infrastructure Inspection**: Automatically detecting corrosion or damage on bridges, pipes, or other metal structures.
+-   **Manufacturing**: Identifying product defects on a production line.
+-   **Medical Analysis**: Segmenting organs or abnormal tissues from medical images like CT scans or MRIs.
+-   **Environmental Monitoring**: Mapping land cover types from satellite imagery.
