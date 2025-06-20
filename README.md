@@ -1,12 +1,12 @@
 # **Proyek Segmentasi Gambar: Deteksi Kelas pada Citra Pipa Korosi dengan DeepLabV3+**
 
 ## **Ringkasan Proyek**
-![image](https://github.com/dicodingacademy/assets/main/project-dummy/ccdef54bd74b209d8495c643b97b0a88.png)
-Proyek ini bertujuan untuk membangun dan melatih model *deep learning* **DeepLabV3+** untuk tugas segmentasi gambar. Model ini dirancang untuk mengklasifikasikan setiap piksel dalam sebuah citra ke dalam kelas-kelas yang telah ditentukan (*background*, *asset*, *corrosion*). Dengan memanfaatkan arsitektur *encoder-decoder* yang kuat dan *Atrous Spatial Pyramid Pooling* (ASPP), model ini mampu menangkap konteks multi-skala untuk menghasilkan prediksi segmentasi yang akurat.
+![Portofolio Image](https://github.com/user-attachments/assets/9764661f-4cf2-486a-b42a-d2b056044c3b)
+Proyek ini bertujuan untuk membangun dan melatih model *deep learning* **U-Net** & **DeepLabV3+** untuk tugas segmentasi gambar. Model ini dirancang untuk mengklasifikasikan setiap piksel dalam sebuah citra ke dalam kelas-kelas yang telah ditentukan (*background*, *asset*, *corrosion*). Dengan memanfaatkan arsitektur *encoder-decoder* yang kuat dan *Atrous Spatial Pyramid Pooling* (ASPP), model ini mampu menangkap konteks multi-skala untuk menghasilkan prediksi segmentasi yang akurat.
 
 ### **Tujuan Proyek:**
 
-1.  **Membangun Model Segmentasi**: Mengimplementasikan arsitektur DeepLabV3+ dengan *backbone* ResNet50 untuk melakukan klasifikasi piksel demi piksel.
+1.  **Membangun Model Segmentasi**: Mengimplementasikan arsitektur U-Net & DeepLabV3+ dengan *backbone* ResNet50 untuk melakukan klasifikasi piksel demi piksel.
 2.  **Mencapai Akurasi Tinggi**: Melatih model untuk mencapai metrik evaluasi yang optimal seperti *Intersection over Union* (IoU) dan *Dice Coefficient*.
 3.  **Visualisasi Hasil**: Menghasilkan *mask* prediksi yang secara visual dapat membedakan antar kelas dalam citra uji.
 
@@ -68,16 +68,21 @@ Kinerja model dievaluasi menggunakan metrik standar untuk tugas segmentasi:
 *   **F1-Score**: Memberikan skor tunggal yang menyeimbangkan *precision* dan *recall*.
 *   **Confusion Matrix**: Memberikan gambaran visual tentang performa klasifikasi untuk setiap kelas.
 
-Berikut adalah ringkasan hasil evaluasi performa model pada data uji:
+Berikut adalah ringkasan hasil evaluasi performa dari kedua model pada data uji:
 
-| Class                 | IoU (Rata-rata) | Dice (Rata-rata) | F1-Score (Rata-rata) |
-|-----------------------|-----------------|------------------|----------------------|
-| Corrosion (Merah)     | XX.XX%          | XX.XX%           | XX.XX%               |
-| Asset (Biru)          | XX.XX%          | XX.XX%           | XX.XX%               |
-| Background (Hijau)    | XX.XX%          | XX.XX%           | XX.XX%               |
-| **Overall**           | **XX.XX%**      | **XX.XX%**       | **XX.XX%**           |
+**DeepLabV3+**
+| Class             | IoU (Rata-rata) | Dice (Rata-rata) | F1-Score (Rata-rata) |
+| ----------------- | --------------- | ---------------- | -------------------- |
+| Corrosion (Merah) | 56.66%          | 64.19%           | 88.65%               |
+| Asset (Biru)      | 85.73%          | 91.55%           | 93.65%               |
+| **Overall**       | **80.07%**      | **80.07%**       | **80.07%**           |
 
-*(Catatan: Metrik di atas adalah placeholder. Isi dengan hasil evaluasi model Anda setelah pelatihan selesai)*
+**U-Net**
+| Class             | IoU (Rata-rata) | Dice (Rata-rata)  | F1-Score (Rata-rata) |
+| ----------------- | --------------- | ----------------- | -------------------- |
+| Corrosion (Merah) | 52.54%          | 58.9975% → 59.00% | 85.38%               |
+| Asset (Biru)      | 70.07%          | 79.93%            | 83.63%               |
+| **Overall**       | **71.76%**      | **71.76%**        | **71.76%**           |
 
 ### **Arsitektur & Deployment**
 
@@ -96,7 +101,7 @@ Model DeepLabV3+ yang telah dilatih diintegrasikan ke dalam sistem aplikasi untu
 
 ### **Conclusion**
 
-Proyek ini berhasil mengimplementasikan model **DeepLabV3+** untuk tugas segmentasi gambar multikelas. Model ini menunjukkan kemampuan yang baik dalam membedakan antara kelas *corrosion*, *asset*, dan *background* pada level piksel. Arsitektur DeepLabV3+ dengan *backbone* ResNet50 terbukti efektif untuk tugas ini, didukung oleh teknik seperti ASSP yang mampu menangkap informasi kontekstual yang kaya.
+Proyek ini berhasil mengimplementasikan model **DeepLabV3+** untuk tugas segmentasi multikelas—mengungguli UNet dengan rata-rata metrik keseluruhan 80.07% dibandingkan 71.76%. Arsitektur DeepLabV3+ dengan backbone ResNet50 dan ASSP terbukti lebih efektif dalam menangkap konteks piksel untuk membedakan korosi dan aset. Fitur ini kini sudah diintegrasikan ke dalam sistem Pertamina bernama **AIDA** sebagai modul segmentasi otomatis.
 
 #### **Potensi Aplikasi**
 
