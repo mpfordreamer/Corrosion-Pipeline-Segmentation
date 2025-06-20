@@ -1,7 +1,7 @@
 # **Proyek Segmentasi Gambar: Deteksi Kelas pada Citra Pipa Korosi dengan DeepLabV3+**
 
 ## **Ringkasan Proyek**
-![Portofolio Image](https://github.com/user-attachments/assets/9764661f-4cf2-486a-b42a-d2b056044c3b)
+<img width="500" alt="Portofolio" src="https://github.com/user-attachments/assets/2a79f682-31f5-45d7-a32a-2bbcf148c359" />
 Proyek ini bertujuan untuk membangun dan melatih model *deep learning* **U-Net** & **DeepLabV3+** untuk tugas segmentasi gambar. Model ini dirancang untuk mengklasifikasikan setiap piksel dalam sebuah citra ke dalam kelas-kelas yang telah ditentukan (*background*, *asset*, *corrosion*). Dengan memanfaatkan arsitektur *encoder-decoder* yang kuat dan *Atrous Spatial Pyramid Pooling* (ASPP), model ini mampu menangkap konteks multi-skala untuk menghasilkan prediksi segmentasi yang akurat.
 
 ### **Tujuan Proyek:**
